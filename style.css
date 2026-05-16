@@ -1,0 +1,88 @@
+:root {
+    --primary: #4f46e5;
+    --primary-hover: #4338ca;
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --text: #1e293b;
+    --text-light: #64748b;
+    --border: #e2e8f0;
+    --success: #22c55e;
+    --danger: #ef4444;
+    --radius: 12px;
+    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+
+body { background: var(--bg); color: var(--text); display: flex; justify-content: center; padding: 2rem 1rem; min-height: 100vh; }
+
+.container { background: var(--card); width: 100%; max-width: 500px; padding: 1.5rem; border-radius: var(--radius); box-shadow: var(--shadow); }
+
+header { text-align: center; margin-bottom: 1rem; }
+header h1 { font-size: 1.5rem; margin-bottom: 0.25rem; }
+.subtitle { color: var(--text-light); font-size: 0.9rem; }
+
+/* ✅ GAYA TOMBOL & BAGIAN TUTORIAL */
+.btn-tutorial {
+    display: block; margin: 0 auto 1rem; background: transparent; color: var(--primary);
+    border: 1px dashed var(--primary); padding: 0.5rem 1rem; font-size: 0.9rem; border-radius: 8px; cursor: pointer;
+}
+.btn-tutorial:hover { background: #eef2ff; }
+
+.tutorial-section {
+    background: #f8fafc; border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 1.25rem; margin-bottom: 1.5rem; font-size: 0.9rem; line-height: 1.6;
+}
+.tutorial-section h3 { margin-bottom: 0.75rem; color: var(--primary); }
+.tutorial-section ol { margin-left: 1.2rem; margin-bottom: 1rem; }
+.tutorial-section li { margin-bottom: 0.5rem; }
+.tutorial-section kbd {
+    background: #e2e8f0; padding: 0.1rem 0.4rem; border-radius: 4px;
+    font-family: monospace; font-size: 0.85rem; border: 1px solid #cbd5e1;
+}
+.btn-close-tutorial {
+    background: var(--text-light); color: white; padding: 0.4rem 0.8rem;
+    font-size: 0.85rem; border: none; border-radius: 6px; cursor: pointer;
+}
+.btn-close-tutorial:hover { background: #475569; }
+
+/* Kelas untuk menyembunyikan elemen */
+.hidden { display: none; }
+
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; text-align: center; margin-bottom: 0.5rem; font-size: 0.85rem; }
+.stat-box { background: #f1f5f9; padding: 0.5rem; border-radius: 8px; }
+.stat-box span { display: block; font-weight: bold; font-size: 1.1rem; }
+
+.progress-bar { height: 8px; background: #e2e8f0; border-radius: 4px; overflow: hidden; margin-bottom: 1.5rem; }
+.progress-fill { height: 100%; background: var(--success); width: 0%; transition: width 0.3s ease; }
+
+.input-section { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
+input, select, button { padding: 0.75rem; border: 1px solid var(--border); border-radius: 8px; font-size: 0.95rem; }
+input { flex: 1; }
+select { max-width: 130px; background: #fff; }
+button { background: var(--primary); color: white; border: none; cursor: pointer; font-weight: 500; }
+button:hover { background: var(--primary-hover); }
+
+.filters, .category-filters { display: flex; gap: 0.5rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
+.filter-btn, .cat-btn { background: #f1f5f9; color: var(--text); padding: 0.4rem 0.8rem; font-size: 0.85rem; }
+.filter-btn.active, .cat-btn.active { background: var(--primary); color: white; }
+
+#taskList { list-style: none; margin-bottom: 1rem; }
+.task-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem; border-bottom: 1px solid var(--border); animation: fadeIn 0.2s ease; }
+.task-item.completed .task-text { text-decoration: line-through; color: var(--text-light); }
+.task-check { width: 20px; height: 20px; cursor: pointer; }
+.task-text { flex: 1; font-size: 0.95rem; }
+.task-cat { font-size: 0.75rem; background: #e0e7ff; color: var(--primary); padding: 0.2rem 0.5rem; border-radius: 6px; white-space: nowrap; }
+.delete-btn { background: transparent; color: var(--danger); padding: 0.3rem; font-size: 1.2rem; border: none; cursor: pointer; }
+.delete-btn:hover { background: #fee2e2; }
+
+.btn-danger { width: 100%; background: var(--danger); padding: 0.8rem; border: none; color: white; border-radius: 8px; cursor: pointer; font-weight: 500; }
+.btn-danger:hover { background: #dc2626; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 480px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .input-section { flex-direction: column; }
+    select { max-width: 100%; }
+}
